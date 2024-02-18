@@ -1,42 +1,26 @@
+// worked with Jacob Johnson
 
-function divideAndConquerSum(a) 
+function divideAndConquerSum(a)
 {
-    var temp = [];
-    if (a.length < 1)
-    {
-        return temp;
-    }
-
-    sumHelper(a, 0, a.length - 1, temp);
-    return a;
+    return sumHelper(a);
 }
 
-function sumHelper(a, low, high, temp)
+function sumHelper(a)
 {
-    var oneThird = Math.floor((high + low) / 3);
-    var twoThird = Math.floor (2*(high + low) / 3) + 1;
-    if (high === 1)
+    var low = 0;
+    var high = a.length;
+    var oneThird = Math.floor(high / 3);
+    var twoThird = Math.floor (2*(high) / 3);
+
+    if (high <= 3)
     {
-        return;
+        var sum = 0;
+        for (i = 0; i < high; i++)
+        {
+            sum = sum + a[i];
+        }
+        return sum;
     }
 
-    sumHelper(a, low, oneThird, temp);
-    sumHelper(a, oneThird, twoThird, temp);
-    sumHelper(a, twoThird, high, temp);
-    mergeSum(a, low, high, temp);
+    return sumHelper(a.slice(low, oneThird)) + sumHelper(a.slice(oneThird, twoThird)) + sumHelper(a.slice(twoThird, high));
 }
-
-
-function mergeSum(a, low, high, temp)
-{
-    var b = low;
-    for (var i = low + 1; i <= high; i++)
-    {
-        a[b] = a[b] + a[i];
-        a.splice(i, 1);
-    }
-}
-
-var input = [1, 5, -1, 4, 6, 7, 8, 9, 5];
-
-console.log(divideAndConquerSum(input));
