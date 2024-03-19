@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/E1vcEWuv)
 # Divide and Conquer Sum
 
 In the lectures, we've covered merge sort, which uses a divide-and-conquer
@@ -25,3 +26,22 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+Recurrence Relation T(n): 1 if n ≤ 3; 3T(n/3) if n > 1
+
+Reasoning: If the array has 3 or less elements, add them all together and return the sum. When the array has 3 or more elements, split the array into 3 (1) then sum each third recursively $3T(n/3)$.
+
+  $T(n)=3T(n/3)$
+  
+  $=3(3T(n/9))$
+  
+  $=9T(n/9)$
+  
+  ...
+  
+  $=3^iT(n/3^i)$
+  
+
+for i = logn
+
+$=nT(1) = n \in \theta(n)$
