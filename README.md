@@ -26,3 +26,17 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+Recurrence Relation T(n): 1 if n ≤ 3; 3T(n/3) if n > 1
+
+Reasoning: If the array has 3 or less elements, add them all together and return the sum. When the array has 3 or more elements, split the array into 3 (1) then sum each third recursively 3T(n/3).
+
+  $\(T(n)=3T(n/3)\)$
+  $\(= 3(3T(n/9))\)$
+  $\(=9T(n/9)\)$
+  ...
+  $\(=3^iT(n/3^i)\)$
+
+for i = logn
+
+\(=nT(1) = n \in \theta(n)\)
