@@ -40,6 +40,7 @@ Reasoning: If the array has 3 or less elements, add them all together and return
   ...
   
   $=3^iT(n/3^i)$
+  
 
 for i = logn
 
